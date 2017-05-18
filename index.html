@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>超轻量图片懒加载库Echo.js</title>
+	<style>
+		.demo img {
+			display: block;
+			margin: 0 auto;
+			padding: 20px 0 20px 0;
+			width: 760px;
+			height: 490px;
+			background: url(img/loading.gif) 50% no-repeat;
+		}
+		h1 {
+			margin: 40px 20px 0 20px;
+			font-family: Microsoft Yahei;
+			font-size: 32px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>超轻量图片懒加载库Echo.js演示demo</h1>
+	<div class="demo">
+		
+		<img src="img/blank.gif" alt="" data-echo="img/1.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/2.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/3.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/4.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/5.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/6.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/7.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/8.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/9.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/10.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/11.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/12.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/13.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/14.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/15.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/16.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/17.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/18.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/19.jpg">
+		<img src="img/blank.gif" alt="" data-echo="img/20.jpg">
+	</div>
+	<script src='js/echo.min.js'></script>
+	<script>
+		Echo.init({
+			offset: 100,   // 离可视区域多少像素的图片可以被加载,默认值为0.
+			throttle: 1000,  // 图片延迟多少毫秒加载
+			unload: false,	// 告诉echo是加载还是卸载视图中的图片，当图片离开视图区域时触发
+			debounce: true, // 防抖动 设不设无所谓
+			callback: function(element, op){  // 回调函数，用来检测图片是否加载
+				console.log('loaded ok!');
+			}
+
+			// echo.js还提供了一个.render()方法，echo.render();
+			/*
+				应用场景：当你的页面没有发生滚动，而你想加载即将要显示的图片，如图片轮播，当第一张图片显示完，接着滑动展示第二张图片，这个时候使用echo.render();提前加载第二张图片，就不会出现图片加载卡顿白屏等现象。
+			*/
+		});
+	</script>
+</body>
+</html>
